@@ -1,0 +1,129 @@
+/* Global Styles */
+body {
+    background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
+    font-family: 'Poppins', sans-serif;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    width: 100vw;   
+    height: 100vh;  
+    overflow-x: hidden; 
+}
+
+/* Container Card */
+.container {
+    max-width: 60vw;          /* wider container */
+    min-height: 90vh;         /* increased height */
+    margin: 50px auto;
+    padding: 50px 60px;       /* more padding */
+    background: #b8d6d3;
+    border-radius: 25px;      /* slightly larger radius */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Title */
+h1 {
+    font-weight: 900;
+    font-size: 4rem;           /* increased font size */
+    margin-bottom: 50px;
+    color: #1e453c;
+    text-align: center;
+}
+h5 {
+    font-weight: 900;
+    font-size: 2rem;           /* increased font size */
+    margin-bottom: 50px;
+    color: #1e453c;
+    text-align: left;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 700;
+    font-size: 2.8rem;        /* larger font */
+    margin-bottom: 12px;
+}
+
+/* Inputs & Sliders */
+.form-control, input[type="range"] {
+    border-radius: 15px;       /* more rounded */
+    padding: 15px 20px;        /* bigger input fields */
+    font-size: 1.1rem;         /* larger font */
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+.form-control:focus, input[type="range"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52,152,219,0.5);
+}
+
+/* Slider Specific */
+input[type="range"] {
+    height: 50px;              /* thicker slider bar */
+}
+
+/* Checkboxes & Radio Buttons */
+.form-check-label {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 1.7rem;         /* larger font */
+}
+
+/* Predict Button */
+.btn-predict {
+    background: linear-gradient(45deg, #264a39, #028d6f);
+    color: #fff;
+    font-weight: 800;
+    border-radius: 15px;
+    padding: 30px 0;
+    width: 100%;
+    font-size: 2.1rem;          /* larger font */
+    transition: 0.3s;
+}
+.btn-predict:hover {
+    background: linear-gradient(45deg, #6aac9c, #327243);
+    transform: scale(1.05);
+    color: #fff;
+}
+
+/* Result Card */
+.result-card {
+    margin-top: 30px;
+    padding: 30px 35px;
+    background: linear-gradient(90deg, #1c5447, #69bbb3);
+    border-left: 10px solid #09433b;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Result Price */
+.result-card h2 {
+    font-size: 3.1rem;         /* bigger font for emphasis */
+    color: #f8fafc;
+}
+
+/* Tooltips */
+input[title] {
+    cursor: help;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 25px;
+        min-height: 100vh;
+    }
+    h1 {
+        font-size: 3.1rem;
+    }
+    .form-label, .form-check-label, .btn-predict {
+        font-size: 1.1rem;
+    }
+}

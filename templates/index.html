@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏠 House Price Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center mb-4">🏠 House Price Predictor</h1>
+    <form method="POST">
+        <!-- Numeric Inputs as Sliders -->
+        <div class="mb-3">
+            <label class="form-label">Area (sqft): <span id="area-val">500</span></label>
+            <input type="range" name="area" min="100" max="10000" value="500" class="form-range" id="area-slider" title="Total square footage">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Bedrooms: <span id="bedrooms-val">1</span></label>
+            <input type="range" name="bedrooms" min="1" max="10" value="1" class="form-range" id="bedrooms-slider" title="Number of bedrooms">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Bathrooms: <span id="bathrooms-val">1</span></label>
+            <input type="range" name="bathrooms" min="1" max="10" value="1" class="form-range" id="bathrooms-slider" title="Number of bathrooms">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Stories: <span id="stories-val">1</span></label>
+            <input type="range" name="stories" min="1" max="5" value="1" class="form-range" id="stories-slider" title="Number of stories">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Parking: <span id="parking-val">0</span></label>
+            <input type="range" name="parking" min="0" max="5" value="0" class="form-range" id="parking-slider" title="Number of parking spaces">
+        </div>
+
+        <!-- Checkbox Inputs -->
+        <h5>Facilities:</h5>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="mainroad" value="1">
+            <label class="form-check-label">Main Road</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="guestroom" value="1">
+            <label class="form-check-label">Guest Room</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="basement" value="1">
+            <label class="form-check-label">Basement</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="hotwaterheating" value="1">
+            <label class="form-check-label">Hot Water Heating</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="airconditioning" value="1">
+            <label class="form-check-label">Air Conditioning</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="prefarea" value="1">
+            <label class="form-check-label">Preferred Area</label>
+        </div>
+
+        <!-- Furnishing Status -->
+        <h5 class="mt-3">Furnishing Status:</h5>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="furnishingstatus" value="unfurnished" checked>
+            <label class="form-check-label">Unfurnished</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="furnishingstatus" value="semi-furnished">
+            <label class="form-check-label">Semi-Furnished</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" class="form-check-input" name="furnishingstatus" value="furnished">
+            <label class="form-check-label">Furnished</label>
+        </div>
+
+        <button type="submit" class="btn btn-predict mt-4">Predict Price</button>
+    </form>
+
+    {% if price %}
+    <div class="result-card">
+        <h4>Predicted House Price:</h4>
+        <h2>${{ price }}</h2>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Update slider values -->
+<script>
+    const sliders = ['area','bedrooms','bathrooms','stories','parking'];
+    sliders.forEach(id => {
+        const slider = document.getElementById(id+'-slider');
+        const valueSpan = document.getElementById(id+'-val');
+        slider.addEventListener('input', () => { valueSpan.textContent = slider.value; });
+    });
+</script>
+</body>
+</html>
